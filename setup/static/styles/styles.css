@@ -1,11 +1,145 @@
-body {
-    background-color: aqua;
-    color:blueviolet;
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
 
+:root {
+    /* colors */
+    --black: #121214;
+    --white: #ffffff;
+    --gray: #808080;
+    --bg-article : #F8F9FA;
+
+    /* font-sizes */
+    --text-xs: 0.75rem; /* 12px */
+    --text-sm: 0.875rem; /* 14px */
+    --text-base: 1rem; /* 16px */
+    --text-lg: 1.125rem; /* 18px */
+    --text-xl: 1.25rem; /* 20px */
+    --text-2xl: 1.5rem; /* 24px */
+    --text-3xl: 1.875rem; /* 30px */
+    --text-4xl: 2.25rem; /* 36px */
+    --text-5xl: 3rem; /* 40px */
+    
+    /* font-weight */
+    --normal: 400;
+    --bold: 700;
+
+    /* gap */
+    --gap: .5rem;
+    --gap1: 1rem;
+    --gap1x: 1.5rem;
+    --gap2: 2rem;
+}
+
+body {
+    background-color: var(--white);
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Menu*/
+
+/* estilos repetidos*/
+header,
+nav.nav,
+.nav__menu {
     display: flex;
     align-items: center;
-    justify-content: center;
-
-    height: 100vh;
-    width: 100vw;
 }
+
+header, 
+nav.nav {
+    justify-content: space-between;
+}
+/*fim  estilos repetidos*/
+
+header {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0;
+    position: relative;
+}
+
+.header__search {
+    align-self: end;
+    padding: 1rem 0;
+}
+
+nav.nav {
+    width: 100%;
+    /* position: sticky; */
+    /* top: 20px; */
+}
+
+.nav__menu {
+    gap: var(--gap1);
+    list-style: none;
+    padding: 1rem 0;
+    font-family: 'Cabin', sans-serif; 
+}
+
+.nav__logo {
+    text-decoration: none;
+    color: var(--bold);
+    font-weight: var(--bold);
+}
+
+.nav__menu__item a {
+    text-decoration: none;
+    color: var(--black);
+    font-weight: var(--bold);
+}
+
+/* Fim Menu*/
+
+/* Main*/
+
+article {
+    display: flex;
+    border-radius: .5rem;
+    background-color: var(--bg-article);
+    margin: 3rem 0;
+}
+
+a.article__link {
+    display: flex;
+    text-decoration: none;
+}
+
+.article__img,
+.article__content {
+    flex: 1;
+}
+
+.article__img {
+    width: 50%;
+    height: 350px;
+    object-fit: cover;
+
+    border-radius: .5rem 0 0 .5rem;
+}
+
+.article__content {
+    padding: 4rem;
+}
+
+.article__title {
+    font-family: 'Cabin', sans-serif;
+    font-size: var(--text-2xl);
+    color: var(--black);
+    margin-bottom: .5rem;
+}
+
+.article__text {
+    font-size: var(--text-sm);
+    color: var(--gray);
+}
+
+/* Fim Main*/
