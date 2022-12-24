@@ -1,0 +1,26 @@
+.article__container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap2);
+}
+
+.article__img {
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: .5rem
+}
+
+.article__title {
+    font-family: 'Cabin', sans-serif;
+    font-size: var(--text-2xl);
+    color: var(--black);
+    margin-bottom: .5rem;
+}
+
+.article__text {
+    font-size: var(--text-sm);
+    color: var(--gray);
+    margin: .5rem 0;
+    line-height: 1.7;
+}

@@ -9,7 +9,7 @@
     --black: #121214;
     --white: #ffffff;
     --gray: #808080;
-    --bg-article : #F8F9FA;
+    --bg-article: #F8F9FA;
 
     /* font-sizes */
     --text-xs: 0.75rem; /* 12px */
@@ -118,7 +118,7 @@ a.article__link {
     flex: 1;
 }
 
-.article__img {
+.articles__img {
     width: 50%;
     height: 350px;
     object-fit: cover;
@@ -140,6 +140,7 @@ a.article__link {
 .article__text {
     font-size: var(--text-sm);
     color: var(--gray);
+    line-height: 1.7;
 }
 
 /* Fim Main*/

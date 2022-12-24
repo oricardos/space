@@ -5,7 +5,18 @@
     <main class="container">
         <article>
             <a href="{% url 'article' %}" class="article__link">
-                <img src="{% static '/assets/img01.jpg' %}" alt="img-article" class="article__img">
+                <img src="{% static '/assets/img01.jpg' %}" alt="img-article" class="articles__img">
+
+                <div class="article__content">
+                    <h1 class="article__title">News Needs to Meet Its Audiences Where They Are</h1>
+                    <p class="article__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. In voluptatem inventore quod asperiores voluptate similique corporis amet vero distinctio sunt aliquam, nobis voluptatum. Rem, amet dolor illo corporis et aliquid?</p>
+                </div>
+            </a>
+        </article>
+
+        <article>
+            <a href="{% url 'article' %}" class="article__link">
+                <img src="{% static '/assets/img02.jpg' %}" alt="img-article" class="articles__img">
 
                 <div class="article__content">
                     <h1 class="article__title">News Needs to Meet Its Audiences Where They Are</h1>
