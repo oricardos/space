@@ -72,6 +72,21 @@ header {
     padding: 1rem 0;
 }
 
+.input__search {
+    padding: .5rem;
+    border-radius: .5rem;
+    border: solid 1px var(--gray);
+    transition: .3s ease-in-out;
+}
+
+.input__search:focus {
+    border: solid 1px var(--black);
+}
+
+.input__search::placeholder {
+    color: var(--gray);
+}
+
 nav.nav {
     width: 100%;
     /* position: sticky; */

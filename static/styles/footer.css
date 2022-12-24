@@ -11,7 +11,8 @@ footer {
     justify-content: space-between;
 }
 
-.footer__logo {
+.footer__logo,
+.footer__made {
     text-decoration: none;
     color: var(--bold);
     font-weight: var(--bold);
@@ -21,6 +22,11 @@ footer {
     list-style: none;
     display: flex;
     gap: var(--gap1);
+    
+}
+
+.footer__social--logo {
+    color: var(--black);
 }
 
 .footer__copyright {
@@ -29,4 +35,8 @@ footer {
     text-align: center;
     margin-top: 4rem;
     font-family: 'Cabin', sans-serif; 
+}
+
+.footer__made {
+    color: var(--black);   
 }
