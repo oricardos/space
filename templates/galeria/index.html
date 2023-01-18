@@ -1,0 +1,28 @@
+{% extends 'galeria/base.html' %}
+{% load static %}
+
+{% block content %}
+    <main class="container">
+
+        {% if articles %}
+        {% for article in articles %}
+            <article>
+                <a href="{% url 'article' article.id %}" class="article__link">
+                    <img src="{% static '/assets/' %}{{article.image}}" alt="img-article" class="articles__img">
+
+                    <div class="article__content">
+                        <h1 class="article__title">{{article.title}}</h1>
+                        <p class="article__text">{{article.content}}</p>
+                    </div>
+                </a>
+            </article>
+        {% endfor %}
+        
+        {% else %}
+            <h1>Sem conteúdo, irmão!</h1>
+        {% endif %}
+    </main>
+
+{% endblock %}
+</body>
+</html>
