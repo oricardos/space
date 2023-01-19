@@ -4,8 +4,9 @@
 {% block content %}
     <div class="container">
         <div class="article__container">
-            <img src="{% static 'assets/' %}{{article.image}}" alt="" class="article__img">
+            <img src="{{article.image}}" alt="" class="article__img">
             <span>{{article.created_at}}</span>
+            <span>{{article.category}}</span>
 
             <div>
                 <h1 class="article__title">{{article.title}}</h1>

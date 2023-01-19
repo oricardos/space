@@ -8,9 +8,10 @@
         {% for article in articles %}
             <article>
                 <a href="{% url 'article' article.id %}" class="article__link">
-                    <img src="{% static '/assets/' %}{{article.image}}" alt="img-article" class="articles__img">
+                    <img src="{{article.image}}" alt="img-article" class="articles__img">
 
                     <div class="article__content">
+                        <span>{{article.category}}</span>
                         <h1 class="article__title">{{article.title}}</h1>
                         <p class="article__text">{{article.content}}</p>
                     </div>
