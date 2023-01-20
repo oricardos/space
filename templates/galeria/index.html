@@ -3,9 +3,9 @@
 
 {% block content %}
     <main class="container">
-
         {% if articles %}
         {% for article in articles %}
+        <input type="hidden" name="article_text" class="article_content" value="{{article.content}}">
             <article>
                 <a href="{% url 'article' article.id %}" class="article__link">
                     <img src="{{article.image}}" alt="img-article" class="articles__img">
@@ -13,7 +13,7 @@
                     <div class="article__content">
                         <span>{{article.category}}</span>
                         <h1 class="article__title">{{article.title}}</h1>
-                        <p class="article__text">{{article.content}}</p>
+                        <p class="article__text"></p>
                     </div>
                 </a>
             </article>
@@ -23,7 +23,13 @@
             <h1>Sem conteúdo, irmão!</h1>
         {% endif %}
     </main>
-
 {% endblock %}
-</body>
-</html>
+
+{% block scripts%}
+    <script>
+        const content = document.querySelector('.article_content').value;
+        const article_text = document.querySelector('.article__text');
+
+        console.log(content.length)
+    </script>
+{% endblock %}
