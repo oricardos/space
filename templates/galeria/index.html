@@ -8,7 +8,11 @@
         <input type="hidden" name="article_text" class="article_content" value="{{article.content}}">
             <article>
                 <a href="{% url 'article' article.id %}" class="article__link">
-                    <img src="{{article.image}}" alt="img-article" class="articles__img">
+                    {% if article.image_file %}
+                    <img src="{{article.image_file.url}}" alt="img-article" class="articles__img">
+                    {% else %}
+                    <img src="{% static 'assets/placeholder.jpg' %}">
+                    {% endif %}
 
                     <div class="article__content">
                         <span>{{article.category}}</span>
