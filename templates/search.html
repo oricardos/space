@@ -1,0 +1,41 @@
+{% extends 'galeria/base.html' %}
+{% load static %}
+
+{% block content %}
+    <main class="container">
+        {% if articles %}
+        
+        {% for result in articles %}
+        <h4>{{articles|length}} resultado(s) encontrado.</h4>
+        <input type="hidden" name="article_text" class="article_content" value="{{result.content}}">
+            <article>
+                <a href="{% url 'article' result.id %}" class="article__link">
+                    {% if result.image_file %}
+                    <img src="{{result.image_file.url}}" alt="img-article" class="articles__img">
+                    {% else %}
+                    <img src="{% static 'assets/placeholder.jpg' %}" class="articles__img">
+                    {% endif %}
+
+                    <div class="article__content">
+                        <span>{{result.category}}</span>
+                        <h1 class="article__title">{{result.title}}</h1>
+                        <p class="article__text"></p>
+                    </div>
+                </a>
+            </article>
+        {% endfor %}
+        
+        {% else %}
+            <h4>🤔 Hmm... não encontramos nada, tente outra coisa!</h4>
+        {% endif %}
+    </main>
+{% endblock %}
+
+{% block scripts%}
+    <script>
+        const content = document.querySelector('.article_content').value;
+        const article_text = document.querySelector('.article__text');
+
+        console.log(content.length)
+    </script>
+{% endblock %}
