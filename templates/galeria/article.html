@@ -1,0 +1,22 @@
+{% extends 'galeria/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="article__container">
+        {% if article.image_file %}
+        <img src="{{article.image_file.url}}" alt="img-article" class="article__img">
+        {% else %}
+        <img src="{% static 'assets/placeholder.jpg' %}" class="article__img">
+        {% endif %}
+
+        <span>{{article.created_at}}</span>
+        <span>{{article.category}}</span>
+
+        <div>
+            <h1 class="article__title">{{article.title}}</h1>
+            <p class="article__text">{{article.content}}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

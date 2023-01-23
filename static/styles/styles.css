@@ -79,6 +79,13 @@ header {
     transition: .3s ease-in-out;
 }
 
+button.search-btn {
+    padding:.5rem;
+    border-radius:.5rem;
+    color: var(--white);
+    background-color: var(--black);
+}
+
 .input__search:focus {
     border: solid 1px var(--black);
 }
@@ -135,6 +142,7 @@ a.article__link {
 
 .articles__img {
     width: 50%;
+    min-width: 500px;
     height: 350px;
     object-fit: cover;
 
