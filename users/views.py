@@ -1,9 +1,31 @@
 from django.shortcuts import render, redirect
 from users.forms import LoginForm, RegisterForm
 from django.contrib.auth.models import User
+from django.contrib import auth
 
 def login(request):
     form = LoginForm()
+
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
+
+        if form.is_valid():
+            name = form['name'].value()
+            password = form['password'].value()
+
+        user = auth.authenticate(
+            request,
+            username = name,
+            password = password,
+        )
+
+        if user is not None:
+            auth.login(request, user)
+            return redirect('index')
+        else:
+            return redirect('login')
+
+
     return render(request, 'auth/login.html', {'form': form})
 
 def register(request):
