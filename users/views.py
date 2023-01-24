@@ -64,3 +64,8 @@ def register(request):
             return redirect('login')
 
     return render(request, 'auth/register.html', {'form': form})
+
+def logout(request):
+    auth.logout(request)
+    messages.success(request, 'Logout efetuado com sucesso!')
+    return redirect('login')
