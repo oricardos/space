@@ -4,39 +4,39 @@
 {% block title%} Space {% endblock %}
 
 {% block content %}
-    <main class="container">
-        {%include '_messages.html' %}
-        {% if articles %}
-        {% for article in articles %}
-        <input type="hidden" name="article_text" class="article_content" value="{{article.content}}">
-            <article>
-                <a href="{% url 'article' article.id %}" class="article__link">
-                    {% if article.image_file %}
-                    <img src="{{article.image_file.url}}" alt="img-article" class="articles__img">
-                    {% else %}
-                    <img src="{% static 'assets/placeholder.jpg' %}" class="articles__img">
-                    {% endif %}
+<main class="container">
+    {%include '_messages.html' %}
+    {% if articles %}
+    {% for article in articles %}
+    <input type="hidden" name="article_text" class="article_content" value="{{article.content}}">
+    <article>
+        <a href="{% url 'article' article.id %}" class="article__link">
+            {% if article.image_file %}
+            <img src="{{article.image_file.url}}" alt="img-article" class="articles__img">
+            {% else %}
+            <img src="{% static 'assets/placeholder.jpg' %}" class="articles__img">
+            {% endif %}
 
-                    <div class="article__content">
-                        <span>{{article.category}}</span>
-                        <h1 class="article__title">{{article.title}}</h1>
-                        <p class="article__text"></p>
-                    </div>
-                </a>
-            </article>
-        {% endfor %}
-        
-        {% else %}
-            <h1>Sem conteúdo, irmão!</h1>
-        {% endif %}
-    </main>
+            <div class="article__content">
+                <span>{{article.category}}</span>
+                <h1 class="article__title">{{article.title}}</h1>
+                <p class="article__text"></p>
+            </div>
+        </a>
+    </article>
+    {% endfor %}
+
+    {% else %}
+    <h1>Sem conteúdo, irmão!</h1>
+    {% endif %}
+</main>
 {% endblock %}
 
 {% block scripts%}
-    <script>
-        const content = document.querySelector('.article_content').value;
-        const article_text = document.querySelector('.article__text');
+<script>
+    const content = document.querySelector('.article_content').value;
+    const article_text = document.querySelector('.article__text');
 
-        console.log(content.length)
-    </script>
+    console.log(content.length)
+</script>
 {% endblock %}
