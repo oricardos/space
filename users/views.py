@@ -38,10 +38,6 @@ def register(request):
 
         #primeiro verifica se as informações são validas
         if form.is_valid():
-            if form['password'].value() != form['confirm_password'].value(): #verificando se as senhas são iguais
-                messages.error(request, 'As senhas não são iguais')
-                return redirect('register')
-
             #pega o valor de cada campo
             name = form['name'].value()
             email = form['email'].value()

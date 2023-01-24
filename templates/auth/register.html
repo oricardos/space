@@ -11,14 +11,19 @@
             {% csrf_token %}
             <fieldset class="p-3" style="all: revert;">
                 <legend style="all: revert;">Register</legend>
-            
+
                 <div class="d-flex flex-column justify-content-center align-center">
                     {%include '_messages.html' %}
-                    
+
                     {% for field in form.visible_fields %}
                     <div class="form-floating mb-3 w-100">
                         {{ field }}
                         <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
+                        {% for error in field.errors %}
+                        <small style="color: red">
+                            {{error}}
+                        </small>
+                        {% endfor %}
                     </div>
                     {% endfor %}
                     <button type="submit" class="btn btn-success">Cadastrar</button>
@@ -30,7 +35,7 @@
             <span>Já possui uma conta?</span>
             <a href="{% url 'login' %}">Faça login</a>
         </div>
-        
+
     </div>
 </div>
 {% endblock %}
