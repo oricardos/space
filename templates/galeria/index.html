@@ -5,6 +5,7 @@
 
 {% block content %}
     <main class="container">
+        {%include '_messages.html' %}
         {% if articles %}
         {% for article in articles %}
         <input type="hidden" name="article_text" class="article_content" value="{{article.content}}">

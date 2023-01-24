@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from users.forms import LoginForm, RegisterForm
 from django.contrib.auth.models import User
-from django.contrib import auth
+from django.contrib import auth, messages
 
 def login(request):
     form = LoginForm()
@@ -21,8 +21,10 @@ def login(request):
 
         if user is not None:
             auth.login(request, user)
+            messages.success(request, 'Seja bem vindo(a) ao Space')
             return redirect('index')
         else:
+            messages.error(request, 'Houve um erro ao tentar realizar o login, tente novamente mais tarde!')
             return redirect('login')
 
 
@@ -37,6 +39,7 @@ def register(request):
         #primeiro verifica se as informações são validas
         if form.is_valid():
             if form['password'].value() != form['confirm_password'].value(): #verificando se as senhas são iguais
+                messages.error(request, 'As senhas não são iguais')
                 return redirect('register')
 
             #pega o valor de cada campo
@@ -46,6 +49,7 @@ def register(request):
 
             # se o usuario já existir, redireciona para pagina de registro
             if User.objects.filter(username=name).exists(): #verificando se o user já existe
+                messages.error(request, 'Usuário já existente!')
                 return redirect('register')
 
             # senão ele cria o usuario
@@ -56,7 +60,7 @@ def register(request):
             )
 
             user.save()
-
+            messages.succes(request, 'Cadastro realizado com sucesso.')
             return redirect('login')
 
     return render(request, 'auth/register.html', {'form': form})
