@@ -1,5 +1,6 @@
 from django.db import models
 from datetime import datetime
+from django.contrib.auth.models import User
 
 class Article(models.Model):
 
@@ -15,6 +16,13 @@ class Article(models.Model):
     category = models.CharField(max_length=255, choices=TAGS_OPTIONS, default='')
     is_posted = models.BooleanField(default=False)
     created_at = models.DateTimeField(default=datetime.now, blank=False)
+    user = models.ForeignKey(
+        to=User,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=False,
+        related_name="user",
+    )
 
     def __str__(self):
         return self.title

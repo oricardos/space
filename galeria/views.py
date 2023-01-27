@@ -1,7 +1,11 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Article
+from django.contrib import messages
 
 def index(request):
+    if not request.user.is_authenticated:
+        messages.error(request, 'Usuário não conectado')
+        return redirect('login')
     articles = Article.objects.order_by('-created_at').filter(is_posted=True)
     return render(request, 'galeria/index.html', {'articles': articles} )
 
