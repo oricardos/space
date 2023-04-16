@@ -56,7 +56,7 @@ def register(request):
             )
 
             user.save()
-            messages.succes(request, 'Cadastro realizado com sucesso.')
+            messages.success(request, 'Cadastro realizado com sucesso.')
             return redirect('login')
 
     return render(request, 'auth/register.html', {'form': form})
