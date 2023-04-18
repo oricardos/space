@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from users.forms import LoginForm, RegisterForm
+from apps.users.forms import LoginForm, RegisterForm
 from django.contrib.auth.models import User
 from django.contrib import auth, messages
 
@@ -56,7 +56,7 @@ def register(request):
             )
 
             user.save()
-            messages.succes(request, 'Cadastro realizado com sucesso.')
+            messages.success(request, 'Cadastro realizado com sucesso.')
             return redirect('login')
 
     return render(request, 'auth/register.html', {'form': form})

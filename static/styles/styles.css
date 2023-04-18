@@ -119,6 +119,13 @@ nav.nav {
     font-weight: var(--bold);
 }
 
+.nav__menu__item.new-image a {
+    padding: .5rem 1rem;
+    border-radius: .5rem;
+    background-color: #121214;
+    color: #ffffff
+}
+
 /* Fim Menu*/
 
 /* Main*/
