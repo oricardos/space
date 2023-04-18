@@ -12,7 +12,15 @@
         <img src="{% static 'assets/placeholder.jpg' %}" class="article__img">
         {% endif %}
 
-        <span>{{article.created_at}}</span>
+        <div class="d-flex justify-content-between">
+            <span>{{article.created_at}}</span>
+            {% if user.is_authenticated %}
+            <div class="d-flex gap-3">
+                <a href="{% url 'edit-image' article.id %}" class="btn btn-primary">Editar</a>
+                <button class="btn btn-danger">Excluir</button>
+            </div>
+            {% endif %}
+        </div>
         <span>{{article.category}}</span>
 
         <div>
