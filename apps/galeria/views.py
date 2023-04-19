@@ -32,8 +32,7 @@ def search(request):
         search_term = request.GET['search']
         if search_term:
             articles = articles.filter(title__icontains=search_term)
-            print(search_term, 'search term')
-    return render(request, 'search.html', {'articles': articles})
+    return render(request, 'galeria/index.html', {'articles': articles})
 
 def new_image(request):
     """
@@ -95,3 +94,10 @@ def delete_image(request, article_id):
     messages.success(request, 'Artigo deletado')
     
     return redirect('index')
+
+
+def filter_category(request, category):
+    articles = Article.objects.order_by('-created_at').filter(is_posted=True, category=category)
+    print(articles)
+    
+    return render(request, 'galeria/index.html', {'articles': articles} )

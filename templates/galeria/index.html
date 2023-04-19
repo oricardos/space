@@ -6,6 +6,10 @@
 {% block content %}
 <main class="container">
     {%include '_messages.html' %}
+
+    {% include 'filter.html' %}
+
+
     {% if articles %}
     {% for article in articles %}
     <input type="hidden" name="article_text" class="article_content" value="{{article.content}}">
@@ -35,8 +39,25 @@
 {% block scripts%}
 <script>
     const content = document.querySelector('.article_content').value;
-    const article_text = document.querySelector('.article__text');
+    const article_text = document.querySelector('p.article__text');
 
-    console.log(content.length)
+    function limitText(text, maxLength) {
+        /**
+        * Limita o número de caracteres de um texto e adiciona reticências ao final.
+        *
+        * @param {string} text O texto que será limitado.
+        * @param {number} maxLength O número máximo de caracteres permitidos.
+        *
+        * @returns {string} O texto limitado com reticências ao final, caso ultrapasse o limite de caracteres.
+        */
+
+        if (text.length > maxLength) {
+            text = text.substring(0, maxLength) + "...";
+        }
+        return text;
+    }
+
+    article_text.innerHTML = limitText(content, 750)
+
 </script>
 {% endblock %}
