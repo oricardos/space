@@ -65,6 +65,18 @@ def new_image(request):
     return render(request, 'form/new.html', {'form': form})
 
 def edit_image(request, article_id):
+    """
+    Renderiza um formulário pré-preenchido com os dados de um artigo especificado pelo ID,
+    e permite sua edição. Caso o formulário seja submetido com sucesso, atualiza o artigo
+    no banco de dados e redireciona para a página inicial.
+
+    Args:
+        request: objeto HttpRequest contendo os dados da requisição HTTP.
+        article_id (number): inteiro representando o ID do artigo a ser editado.
+
+    Returns:
+        Renderização do template 'form/edit.html', passando o formulário preenchido e o ID do artigo.
+    """
     article = Article.objects.get(id=article_id)
     form = ArticleForm(instance=article)
     
@@ -77,5 +89,9 @@ def edit_image(request, article_id):
     
     return render(request, 'form/edit.html', {'form': form, 'article_id': article_id})
 
-def delete_image(request):
-    pass
+def delete_image(request, article_id):
+    article = Article.objects.get(id=article_id)
+    article.delete()
+    messages.success(request, 'Artigo deletado')
+    
+    return redirect('index')
