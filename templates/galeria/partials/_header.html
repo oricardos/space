@@ -1,8 +1,12 @@
-<header class="container header">
+<header class="container header w-100">
     <div class="header__search">
-        <form action="{% url 'search' %}" >
-            <input class="input__search" type="search" name="search" id="search" placeholder="O que você procura?">
-            <button class="search-btn" type="submit">Pesquisar</button>
+        <form action="{% url 'search' %}" class="row gap-sm-1 gap-md-0 justify-content-end flex-md-row">
+            <div class="col-sm-12 col-md-8">
+                <input class="input__search w-100" type="search" name="search" id="search" placeholder="O que você procura?">
+            </div>
+            <div class="col-sm-12 col-md-4">
+                <button class="search-btn w-100" type="submit">Pesquisar</button>
+            </div>
         </form>
     </div>
 

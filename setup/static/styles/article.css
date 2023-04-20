@@ -18,7 +18,6 @@ a.article__link {
 
 .article__img {
     width: 50%;
-    min-width: 500px;
     height: 350px;
     object-fit: cover;
 
