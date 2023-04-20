@@ -1,14 +1,33 @@
-.article__container {
+article {
     display: flex;
-    flex-direction: column;
-    gap: var(--gap2);
+    border-radius: .5rem;
+    background-color: var(--bg-article);
+    margin: 3rem 0;
+}
+
+a.article__link {
+    display: flex;
+    text-decoration: none;
+}
+
+
+.article__img,
+.article__content {
+    flex: 1;
 }
 
 .article__img {
-    width: 100%;
-    max-height: 500px;
+    width: 50%;
+    min-width: 500px;
+    height: 350px;
     object-fit: cover;
-    border-radius: .5rem
+
+    border-radius: .5rem 0 0 .5rem;
+}
+
+.article__content {
+    width: 50%;
+    padding: 1rem 4rem 0;
 }
 
 .article__title {
@@ -21,6 +40,5 @@
 .article__text {
     font-size: var(--text-sm);
     color: var(--gray);
-    margin: .5rem 0;
     line-height: 1.7;
 }
