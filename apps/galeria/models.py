@@ -5,8 +5,15 @@ from django.contrib.auth.models import User
 class Article(models.Model):
 
     TAGS_OPTIONS = [
-        ('NEBULOSA', 'Nebulosa'),
-        ('GALAXIA', 'Galaxia'),
+        ('FRONTEND', 'Front-end'),
+        ('BACKEND', 'Back-end'),
+        ('FULLSTACK', 'Full-Stack'),
+        ('PYTHON', 'Python'),
+        ('DJANGO', 'Django'),
+        ('JAVASCRIPT', 'JavaScript'),
+        ('REACTJS', 'ReactJs'),
+        ('REACTNATIVE', 'React Native'),
+        ('NODEJS', 'NodeJS'),
     ]
 
     title = models.CharField(max_length=255, null=False, blank=False)
